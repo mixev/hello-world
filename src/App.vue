@@ -1,26 +1,40 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <StartPage />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import StartPage from './components/StartPage.vue'
 export default {
   name: 'App',
+  
   components: {
-    HelloWorld
+    StartPage,
   }
 }
 </script>
 
 <style>
+html {
+  height: 100%;
+  margin: 0;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  height: 100%;
+  display: flow-root;
+}
+.stpage {
+  background-image: url('https://images.unsplash.com/photo-1593860572337-8face01d277e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  backdrop-filter: blur(8px);
+}
+.grad {
+  height: 100vh;
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
 }
 </style>
