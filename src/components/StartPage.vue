@@ -4,20 +4,14 @@
       <h1 class="hello">Hello!</h1>
       <div class="box-text">
         <input class="input-text" type="text" placeholder="enter login" />
-        <!-- <form @submit.prevent="addTodo"> -->
         <input
           class="input-text"
           type="text"
           placeholder="enter password to enter"
         />
-        <!-- </form> -->
         <div class="login" @click="showPopupWelcome">login</div>
         <popupWelcome v-if="isPopupVisible" @close="closePopupWelcome" />
       </div>
-      <!-- v-for="todo of todos"
-          :key="todo.id"
-          :todo="todo"
-          @remove="removeTodo" -->
       <div class="forgot_pass">
         <div class="fp">forgot password</div>
         <div class="reg">register</div>
@@ -28,49 +22,22 @@
 
 <script>
 import popupWelcome from './popupWelcome'
-// let nextTodoId = 1
-// const createTodo = text => ({
-//   text,
-//   id: nextTodoId++,
-// })
 export default {
   components: {
     popupWelcome,
   },
-  // props: {
-  //   poduct: {
-  //     type: Object,
-  //     default() {
-  //       return {}
-  //     },
-  //   },
-  // },
   data() {
     return {
       isPopupVisible: false,
-      // todos: [
-      //   createTodo('Learn Vue'),
-      //   createTodo('Learn about single-file components'),
-      //   createTodo('Fall in love ❤️'),
-      // ],
-      // newTodoText: '',
     }
   },
   methods: {
     showPopupWelcome() {
-      // const trimmedText = this.newTodoText.trim()
-      // if (trimmedText) {
-      //   this.todos.push(createTodo(trimmedText))
-      // }
       this.isPopupVisible = true
     },
     closePopupWelcome() {
       this.isPopupVisible = false
     },
-    // removeTodo(item) {
-
-    //   this.todos = this.todos.filter(todo => todo !== item)
-    // },
   },
 }
 </script>
@@ -144,7 +111,6 @@ export default {
 }
 .login .show {
   visibility: visible;
-
 }
 
 * {
@@ -166,7 +132,6 @@ export default {
 }
 .registerbtn {
   position: relative;
-  /* bottom: 5px; */
   left: 180px;
   cursor: pointer;
   color: #9b8db3;

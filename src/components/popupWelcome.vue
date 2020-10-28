@@ -1,10 +1,4 @@
 <template>
-  <!-- <ul>
-    <input type="checkbox" />
-    <span>{{ todo.text }}</span>
-    <button @click.prevent="$emit('remove', todo)">&times;</button>
-  </ul>
- -->
   <div id="id01">
     <testPopup @click="$emit('close')" />
     <div class="Welcome-module">Welcome name!</div>
