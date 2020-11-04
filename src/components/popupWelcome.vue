@@ -50,8 +50,8 @@ export default {
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   z-index: 1;
   font-size: 29px;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
+  -webkit-animation: fadeIn 0.5s;
+  animation: fadeIn 0.5s;
 }
 @-webkit-keyframes fadeIn {
   from {

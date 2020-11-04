@@ -13,8 +13,8 @@
         <popupWelcome v-if="isPopupVisible" @close="closePopupWelcome" />
       </div>
       <div class="forgot_pass">
-        <div class="fp">forgot password</div>
-        <div class="reg">register</div>
+        <div class="forgot_pass--fp">forgot password</div>
+        <div class="forgot_pass--reg">register</div>
       </div>
     </div>
   </div>
@@ -42,6 +42,7 @@ export default {
 }
 </script>
 <style scoped lang="scss">
+$border-color: rgba(180, 175, 175, 0.82);
 .root-box {
   height: 100%;
   display: flex;
@@ -52,7 +53,7 @@ export default {
   color: black;
   font-size: 50px;
   text-align: center;
-  border: 1px solid rgba(180, 175, 175, 0.82);
+  border: 1px solid $border-color;
 }
 .forgot_pass {
   color: white;
@@ -61,13 +62,13 @@ export default {
   align-items: flex-start;
   align-self: flex-end;
   font-size: 29px;
-  border: 4px solid rgba(180, 175, 175, 0.82);
-}
-.fp {
-  cursor: pointer;
-}
-.reg {
-  cursor: pointer;
+  border: 4px solid $border-color;
+  &--fp {
+    cursor: pointer;
+  }
+  &--reg {
+    cursor: pointer;
+  }
 }
 
 .box {
@@ -82,22 +83,23 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 3px solid rgba(180, 175, 175, 0.82);
+    border: 3px solid $border-color;
   }
 }
 .input-text {
   color: #9b8db3;
   border-radius: 34px;
-  border: 1px solid rgba(180, 175, 175, 0.82);
+  border: 1px solid $border-color;
   width: 302px;
   height: 54px;
   margin-bottom: 15px;
 }
+
 .login {
   color: #9b8db3;
   font-size: 39px;
   cursor: pointer;
-  border: 1px solid rgba(180, 175, 175, 0.82);
+  border: 1px solid $border-color;
   position: relative;
   left: 90px;
 }
