@@ -1,16 +1,16 @@
 <template>
   <div id="id01">
-    <testPopup @click="$emit('close')" />
+    <popupOverlay @click="$emit('close')" />
     <div class="Welcome-module">Welcome name!</div>
   </div>
 </template>
 
 <script>
-import testPopup from './testPopup'
+import popupOverlay from './popupOverlay'
 
 export default {
   components: {
-    testPopup,
+    popupOverlay,
   },
   name: 'popupWelcome',
   props: {},

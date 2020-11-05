@@ -10,11 +10,12 @@
           placeholder="enter password to enter"
         />
         <div class="login" @click="showPopupWelcome">login</div>
-        <popupWelcome v-if="isPopupVisible" @close="closePopupWelcome" />
+        <popupWelcome v-if="isPopupWelVisible" @close="closePopupWelcome" />
       </div>
       <div class="forgot_pass">
         <div class="forgot_pass--fp">forgot password</div>
-        <div class="forgot_pass--reg">register</div>
+        <div class="forgot_pass--reg" @click="showPopupRegister">register</div>
+        <popuRegister v-if="isPopupRegVisible" @close="closePopupRegister" />
       </div>
     </div>
   </div>
@@ -22,21 +23,30 @@
 
 <script>
 import popupWelcome from './popupWelcome'
+import popuRegister from './popupRegister'
 export default {
   components: {
     popupWelcome,
+    popuRegister,
   },
   data() {
     return {
-      isPopupVisible: false,
+      isPopupWelVisible: false,
+      isPopupRegVisible: false,
     }
   },
   methods: {
     showPopupWelcome() {
-      this.isPopupVisible = true
+      this.isPopupWelVisible = true
     },
     closePopupWelcome() {
-      this.isPopupVisible = false
+      this.isPopupWelVisible = false
+    },
+    showPopupRegister() {
+      this.isPopupRegVisible = true
+    },
+    closePopupRegister() {
+      this.isPopupRegVisible = false
     },
   },
 }
@@ -53,7 +63,6 @@ $border-color: rgba(180, 175, 175, 0.82);
   color: black;
   font-size: 50px;
   text-align: center;
-  border: 1px solid $border-color;
 }
 .forgot_pass {
   color: white;
@@ -62,7 +71,6 @@ $border-color: rgba(180, 175, 175, 0.82);
   align-items: flex-start;
   align-self: flex-end;
   font-size: 29px;
-  border: 4px solid $border-color;
   &--fp {
     cursor: pointer;
   }
@@ -83,7 +91,6 @@ $border-color: rgba(180, 175, 175, 0.82);
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 3px solid $border-color;
   }
 }
 .input-text {
@@ -99,7 +106,6 @@ $border-color: rgba(180, 175, 175, 0.82);
   color: #9b8db3;
   font-size: 39px;
   cursor: pointer;
-  border: 1px solid $border-color;
   position: relative;
   left: 90px;
 }
