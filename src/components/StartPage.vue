@@ -3,14 +3,24 @@
     <div class="box-container">
       <h1 class="hello">Hello!</h1>
       <div class="box-text">
-        <input class="input-text" type="text" placeholder="enter login" />
+        <input
+          class="input-text"
+          type="text"
+          placeholder="enter login"
+          v-bind:value="inputName"
+          v-on:input="changeName"
+        />
         <input
           class="input-text"
           type="text"
           placeholder="enter password to enter"
         />
         <div class="login" @click="showPopupWelcome">login</div>
-        <popupWelcome v-if="isPopupWelVisible" @close="closePopupWelcome" />
+        <popupWelcome
+          v-bind:nameLogin="welcomeName"
+          v-if="isPopupWelVisible"
+          @close="closePopupWelcome"
+        />
       </div>
       <div class="forgot_pass">
         <div class="forgot_pass--fp">forgot password</div>
@@ -29,16 +39,27 @@ export default {
     popupWelcome,
     popuRegister,
   },
+
   data() {
     return {
+      inputName: '',
+      welcomeName: '',
       isPopupWelVisible: false,
       isPopupRegVisible: false,
     }
   },
   methods: {
-    showPopupWelcome() {
-      this.isPopupWelVisible = true
+    changeName(event) {
+      this.inputName = event.target.value
     },
+
+    showPopupWelcome() {
+      this.welcomeName = this.inputName
+      setTimeout(() => {
+        this.isPopupWelVisible = true
+      }, 3000)
+    },
+
     closePopupWelcome() {
       this.isPopupWelVisible = false
     },
