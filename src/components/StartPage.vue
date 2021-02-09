@@ -25,7 +25,11 @@
       <div class="forgot_pass">
         <div class="forgot_pass--fp">forgot password</div>
         <div class="forgot_pass--reg" @click="showPopupRegister">register</div>
-        <popuRegister v-if="isPopupRegVisible" @close="closePopupRegister" />
+        <popuRegister
+          v-if="isPopupRegVisible"
+          @close="closePopupRegister"
+          @regclose="registerAndClose"
+        />
       </div>
     </div>
   </div>
@@ -55,9 +59,10 @@ export default {
 
     showPopupWelcome() {
       this.welcomeName = this.inputName
+      this.isPopupWelVisible = true
       setTimeout(() => {
-        this.isPopupWelVisible = true
-      }, 3000)
+        this.isPopupWelVisible = false
+      }, 5000)
     },
 
     closePopupWelcome() {
@@ -68,6 +73,12 @@ export default {
     },
     closePopupRegister() {
       this.isPopupRegVisible = false
+    },
+    registerAndClose() {
+      console.log(5)
+      setTimeout(() => {
+        this.isPopupRegVisible = false
+      }, 5000)
     },
   },
 }
