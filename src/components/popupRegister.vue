@@ -4,21 +4,11 @@
     <div class="popup-module --register">
       <div class="header_reg">Registration</div>
       <div class="reg-input">
-        <input
-          class="reg-input -text --log"
-          type="text"
-          placeholder="enter login"
-        />
-        <input
-          class="reg-input -text --pass"
-          type="text"
-          placeholder="enter password"
-        />
-        <input
-          class="reg-input -text --pass"
-          type="text"
-          placeholder="enter password confirmation"
-        />
+        <div class="input-margin-bottom">
+          <inputText :text="textLogin" />
+        </div>
+        <inputText :text="textPass" />
+        <inputText :text="textConfirm" />
       </div>
       <div class="fotter_reg" @click="$emit('regclose')">register</div>
     </div>
@@ -27,16 +17,22 @@
 
 <script>
 import popupOverlay from './popupOverlay'
+import inputText from './inputText'
 
 export default {
   components: {
     popupOverlay,
+    inputText,
   },
   name: 'popupRegister',
   props: {},
 
   data() {
-    return {}
+    return {
+      textLogin: 'enter login',
+      textPass: 'enter password',
+      textConfirm: 'enter password confirmation',
+    }
   },
   methods: {
     // closePopuppp() {

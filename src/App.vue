@@ -1,15 +1,15 @@
 <template>
-  <StartPage />
+  <startPage />
 </template>
 
 <script>
-import StartPage from './components/StartPage.vue'
+import startPage from './components/startPage.vue'
 
 export default {
   name: 'App',
 
   components: {
-    StartPage,
+    startPage,
   },
 }
 </script>

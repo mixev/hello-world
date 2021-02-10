@@ -3,19 +3,12 @@
     <div class="box-container">
       <h1 class="hello">Hello!</h1>
       <div class="box-text">
-        <input
-          class="input-text"
-          type="text"
-          placeholder="enter login"
-          v-bind:value="inputName"
+        <inputText
+          :text="textLogin"
+          :value="inputName"
           v-on:input="changeName"
         />
-        <input
-          class="input-text"
-          type="text"
-          placeholder="enter password to enter"
-          v-bind:value="inputPass"
-        />
+        <inputText :text="textPass" :value="inputPass" />
         <div class="login" @click="showPopupWelcome">login</div>
         <popupWelcome
           v-bind:nameLogin="welcomeName"
@@ -39,10 +32,12 @@
 <script>
 import popupWelcome from './popupWelcome'
 import popuRegister from './popupRegister'
+import inputText from './inputText'
 export default {
   components: {
     popupWelcome,
     popuRegister,
+    inputText,
   },
 
   data() {
@@ -52,6 +47,8 @@ export default {
       welcomeName: '',
       isPopupWelVisible: false,
       isPopupRegVisible: false,
+      textLogin: 'enter login',
+      textPass: 'enter password to enter',
     }
   },
   methods: {
