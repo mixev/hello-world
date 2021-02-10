@@ -14,6 +14,7 @@
           class="input-text"
           type="text"
           placeholder="enter password to enter"
+          v-bind:value="inputPass"
         />
         <div class="login" @click="showPopupWelcome">login</div>
         <popupWelcome
@@ -46,6 +47,7 @@ export default {
 
   data() {
     return {
+      inputPass: '',
       inputName: '',
       welcomeName: '',
       isPopupWelVisible: false,
@@ -63,6 +65,8 @@ export default {
       setTimeout(() => {
         this.isPopupWelVisible = false
       }, 5000)
+      this.inputName = ''
+      this.inputPass = ''
     },
 
     closePopupWelcome() {
@@ -75,10 +79,9 @@ export default {
       this.isPopupRegVisible = false
     },
     registerAndClose() {
-      console.log(5)
       setTimeout(() => {
         this.isPopupRegVisible = false
-      }, 5000)
+      }, 3000)
     },
   },
 }
