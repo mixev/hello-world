@@ -1,13 +1,24 @@
 <template>
-  <div>
-    <input class="reg-input -text" type="text" :placeholder="text" />
-  </div>
+  <input
+    class="reg-input -text"
+    type="text"
+    :value="value"
+    :placeholder="placeholder"
+    @input.stop="addName"
+  />
 </template>
 <script>
 export default {
   name: 'inputText',
   props: {
-    text: String,
+    placeholder: String,
+    value: String,
+  },
+
+  methods: {
+    addName(payload) {
+      this.$emit('input', payload.target.value)
+    },
   },
 }
 </script>

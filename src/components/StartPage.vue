@@ -4,14 +4,14 @@
       <h1 class="hello">Hello!</h1>
       <div class="box-text">
         <inputText
-          :text="textLogin"
+          :placeholder="textLogin"
+          @input="addName"
           :value="inputName"
-          v-on:input="changeName"
         />
-        <inputText :text="textPass" :value="inputPass" />
+        <inputText :placeholder="textPass" :value="inputPass" />
         <div class="login" @click="showPopupWelcome">login</div>
         <popupWelcome
-          v-bind:nameLogin="welcomeName"
+          :nameLogin="welcomeName"
           v-if="isPopupWelVisible"
           @close="closePopupWelcome"
         />
@@ -52,11 +52,12 @@ export default {
     }
   },
   methods: {
-    changeName(event) {
-      this.inputName = event.target.value
+    addName(newName) {
+      this.inputName = newName
     },
 
     showPopupWelcome() {
+      console.log(this.inputName)
       this.welcomeName = this.inputName
       this.isPopupWelVisible = true
       setTimeout(() => {
