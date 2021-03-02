@@ -5,11 +5,19 @@
       <div class="box-text">
         <inputText
           :placeholder="textLogin"
-          @input="addName"
+          @inputt="addName"
           :value="inputName"
         />
-        <inputText :placeholder="textPass" :value="inputPass" />
-        <div class="login" @click="showPopupWelcome">login</div>
+        <inputText
+          :placeholder="textPass"
+          @inputt="addPass"
+          :value="inputPass"
+        />
+        <buttonType
+          :className="loginClass"
+          :btnName="buttonLoginName"
+          @click="showPopupWelcome"
+        />
         <popupWelcome
           :nameLogin="welcomeName"
           v-if="isPopupWelVisible"
@@ -17,8 +25,12 @@
         />
       </div>
       <div class="forgot_pass">
-        <div class="forgot_pass--fp">forgot password</div>
-        <div class="forgot_pass--reg" @click="showPopupRegister">register</div>
+        <buttonType :className="forgotClassfp" :btnName="buttonForgotName" />
+        <buttonType
+          :className="forgotClassreg"
+          :btnName="buttonRegName"
+          @click="showPopupRegister"
+        />
         <popuRegister
           v-if="isPopupRegVisible"
           @close="closePopupRegister"
@@ -33,11 +45,13 @@
 import popupWelcome from './popupWelcome'
 import popuRegister from './popupRegister'
 import inputText from './inputText'
+import buttonType from './buttonType'
 export default {
   components: {
     popupWelcome,
     popuRegister,
     inputText,
+    buttonType,
   },
 
   data() {
@@ -49,15 +63,23 @@ export default {
       isPopupRegVisible: false,
       textLogin: 'enter login',
       textPass: 'enter password to enter',
+      loginClass: 'login',
+      buttonLoginName: 'login',
+      forgotClassfp: 'forgot_pass--fp',
+      buttonForgotName: 'forgot password',
+      forgotClassreg: 'forgot_pass--reg',
+      buttonRegName: 'register',
     }
   },
   methods: {
     addName(newName) {
       this.inputName = newName
     },
+    addPass(newPass) {
+      this.inputPass = newPass
+    },
 
     showPopupWelcome() {
-      console.log(this.inputName)
       this.welcomeName = this.inputName
       this.isPopupWelVisible = true
       setTimeout(() => {

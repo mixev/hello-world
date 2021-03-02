@@ -3,13 +3,13 @@
 </template>
 
 <script>
-import startPage from './components/startPage.vue'
+import StartPage from './components/StartPage'
 
 export default {
   name: 'App',
 
   components: {
-    startPage,
+    StartPage,
   },
 }
 </script>

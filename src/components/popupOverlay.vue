@@ -4,6 +4,6 @@
 
 <script>
 export default {
-  name: 'PopupOverlay',
+  name: 'popupOverlay',
 }
 </script>

@@ -1,27 +1,26 @@
 <template>
-  <div class="module">
-    <popupOverlay @click="$emit('close')" />
-    <div class="popup-module --register">
+  <popupType :className="regClass">
+    <template v-slot:regist-form>
       <div class="header_reg">Registration</div>
       <div class="reg-input">
         <div class="input-margin-bottom">
-          <inputText :text="textLogin" />
+          <inputText :placeholder="textLogin" />
         </div>
-        <inputText :text="textPass" />
-        <inputText :text="textConfirm" />
+        <inputText :placeholder="textPass" />
+        <inputText :placeholder="textConfirm" />
       </div>
       <div class="fotter_reg" @click="$emit('regclose')">register</div>
-    </div>
-  </div>
+    </template>
+  </popupType>
 </template>
 
 <script>
-import popupOverlay from './popupOverlay'
 import inputText from './inputText'
+import popupType from './popupType'
 
 export default {
   components: {
-    popupOverlay,
+    popupType,
     inputText,
   },
   name: 'popupRegister',
@@ -32,15 +31,8 @@ export default {
       textLogin: 'enter login',
       textPass: 'enter password',
       textConfirm: 'enter password confirmation',
+      regClass: 'popup-module --register',
     }
-  },
-  methods: {
-    // closePopuppp() {
-    //   this.$emit('close')
-    // },
-    // registerAndClose() {
-    //   this.$emit('rclose')
-    // },
   },
 }
 </script>

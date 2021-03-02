@@ -1,19 +1,18 @@
 <template>
-  <div class="module">
-    <popupOverlay @click="$emit('close')" />
-    <div class="popup-module --welcome">
+  <popupType :className="welClass">
+    <template v-slot:welcome-form>
       <div class="text">Welcome {{ nameLogin }}!</div>
       <div class="textWait">please wait a second to login...</div>
-    </div>
-  </div>
+    </template>
+  </popupType>
 </template>
 
 <script>
-import popupOverlay from './popupOverlay'
+import popupType from './popupType'
 
 export default {
   components: {
-    popupOverlay,
+    popupType,
   },
   name: 'popupWelcome',
   props: {
@@ -21,7 +20,9 @@ export default {
   },
 
   data() {
-    return {}
+    return {
+      welClass: 'popup-module --welcome',
+    }
   },
   methods: {
     closePopup() {

@@ -17,7 +17,7 @@ export default {
 
   methods: {
     addName(payload) {
-      this.$emit('input', payload.target.value)
+      this.$emit('inputt', payload.target.value)
     },
   },
 }
